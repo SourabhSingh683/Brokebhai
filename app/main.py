@@ -31,10 +31,12 @@ app = FastAPI(
 from app.routers import users, transactions
 from app.routers import predict as predict_router
 from app.routers import loans as loans_router
+from app.routers import savings as savings_router
 app.include_router(users.router, prefix="/api/users", tags=["users"])
 app.include_router(transactions.router, prefix="/api/transactions", tags=["transactions"])
 app.include_router(predict_router.router, prefix="/api", tags=["predict"])
 app.include_router(loans_router.router, prefix="/api", tags=["loans", "notifications"])
+app.include_router(savings_router.router, prefix="/api", tags=["savings"])
 
 @app.get("/")
 async def root():
